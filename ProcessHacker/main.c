@@ -111,6 +111,8 @@ INT WINAPI wWinMain(
     PHP_BASE_THREAD_DBG dbg;
 #endif
 
+    if(!SetDllDirectory(L""))
+        return 1;
     if (!NT_SUCCESS(PhInitializePhLibEx(L"Process Hacker", ULONG_MAX, Instance, 0, 0)))
         return 1;
     if (!PhInitializeExceptionPolicy())
